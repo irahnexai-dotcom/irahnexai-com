@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 import Section from '../../components/Section/Section'
 import './Services.css'
@@ -117,7 +118,7 @@ function ServiceBlock({ service }) {
         </div>
       </div>
     </div>
-    <a className="directory-link" href="/contact">Talk to us <span aria-hidden="true">↗</span></a>
+    <NavLink className="directory-link" to="/contact">Talk to us <span aria-hidden="true">↗</span></NavLink>
   </article>
 }
 

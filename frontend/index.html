@@ -3,21 +3,360 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="IrahNexAI helps businesses improve their brand, customer reach, everyday work, and use of practical digital solutions." />
+    <meta
+      name="description"
+      content="IrahNexAI helps businesses improve their brand, customer reach, everyday work, and use of practical digital solutions."
+    />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0B0D0C" />
     <link rel="icon" type="image/webp" href="/images/logo.webp" />
     <link rel="apple-touch-icon" href="/images/logo.webp" />
     <link rel="canonical" href="https://irahnexai.com/" />
     <meta property="og:title" content="IrahNexAI" />
-    <meta property="og:description" content="IrahNexAI helps businesses improve their brand, customer reach, everyday work, and use of practical digital solutions." />
+    <meta
+      property="og:description"
+      content="IrahNexAI helps businesses improve their brand, customer reach, everyday work, and use of practical digital solutions."
+    />
     <meta property="og:url" content="https://irahnexai.com/" />
-    <meta property="og:image" content="https://irahnexai.com/images/logo.webp" />
+    <meta
+      property="og:image"
+      content="https://irahnexai.com/images/logo.webp"
+    />
     <meta property="og:type" content="website" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+    />
     <title>IrahNexAI</title>
+    <style>
+      :root {
+        --chat--color--primary: #c8ff4d;
+        --chat--color--primary-shade-50: #8fbf24;
+        --chat--color--primary-shade-100: #6f9918;
+        --chat--color--secondary: #1c5db8;
+        --chat--color--secondary-shade-50: #164a92;
+        --chat--color-white: #f4f3ed;
+        --chat--color-light: #181d1a;
+        --chat--color-light-shade-50: #121614;
+        --chat--color-light-shade-100: #29302c;
+        --chat--color-medium: #a8ada7;
+        --chat--color-dark: #0b0d0c;
+        --chat--color-disabled: #5e665f;
+        --chat--color-typing: rgba(200, 255, 77, 0.6);
+        --chat--spacing: 1rem;
+        --chat--border-radius: 0.5rem;
+        --chat--transition-duration: 0.2s;
+        --chat--font-family: "Instrument Sans", sans-serif;
+        --chat--window--width: min(380px, calc(100vw - 2rem));
+        --chat--window--height: min(560px, calc(100vh - 7rem));
+        --chat--window--border: 1px solid #29302c;
+        --chat--window--border-radius: 0.75rem;
+        --chat--header-height: 15%;
+        --chat--header--background: #121614;
+        --chat--header--color: #f4f3ed;
+        --chat--header--border-bottom: 1px solid #29302c;
+        --chat--header--padding: 0.5rem 0.1rem 0.1rem 0.7rem;
+        --chat--heading--font-size: 1rem;
+        --chat--subtitle--font-size: inherit;
+        --chat--subtitle--line-height: 0;
+        --chat--subtitle--font-size: 0.78rem;
+        --chat--message--font-size: 0.875rem;
+        --chat--message--border-radius: 0.5rem;
+        --chat--message-line-height: 1.5;
+        --chat--message--bot--background: #181d1a;
+        --chat--message--bot--color: #f4f3ed;
+        --chat--message--bot--border: 1px solid #29302c;
+        --chat--message--user--background: #1c5db8;
+        --chat--message--user--color: #f4f3ed;
+        --chat--message--user--border: none;
+        --chat--body--background: #1b1b1b00;
+        --chat--footer--background: #121614;
+        --chat--footer--border-top: 1px solid #29302c;
+        --chat--input--background: #181d1a;
+        --chat--input--text-color: #f4f3ed;
+        --chat--input--border: 1px solid #29302c;
+        --chat--input--border-active: 1px solid #c8ff4d;
+        --chat--input--border-radius: 0.25rem;
+        --chat--input--container--background: #121614;
+        --chat--input--container--border: 1px solid #29302c;
+        --chat--input--container--border-radius: 0 0 0.5rem 0.5rem;
+        --chat--input--container--padding: 0.75rem;
+        --chat--input--send--button--background: #c8ff4d;
+        --chat--input--send--button--color: #0b0d0c;
+        --chat--input--send--button--background-hover: #8fbf24;
+        --chat--input--send--button--color-hover: #0b0d0c;
+        --chat--toggle--background: #c8ff4d;
+        --chat--toggle--hover--background: #8fbf24;
+        --chat--toggle--active--background: #121614;
+        --chat--toggle--color: #0b0d0c;
+        --chat--toggle--size: 3.75rem;
+        --chat--toggle--border-radius: 50%;
+        --chat--button--background--primary: #c8ff4d;
+        --chat--button--color--primary: #0b0d0c;
+        --chat--button--background--primary--hover: #8fbf24;
+        --chat--button--color--primary--hover: #0b0d0c;
+      }
+
+      .n8n-chat .chat-window {
+        background: #0b0d0c !important;
+        border: 1px solid rgba(200, 255, 77, 0.2) !important;
+        border-radius: 0.75rem !important;
+        box-shadow:
+          0 1.5rem 4rem rgba(0, 0, 0, 0.48),
+          0 0 0 1px rgba(200, 255, 77, 0.04) !important;
+        font-family: "Instrument Sans", sans-serif !important;
+        overflow: hidden !important;
+      }
+
+      .n8n-chat {
+        z-index: 1000 !important;
+      }
+
+      .n8n-chat .chat-window-header,
+      .n8n-chat .chat-messages-list,
+      .n8n-chat .chat-input {
+        background: #121614 !important;
+      }
+
+      .n8n-chat .chat-window-header {
+        align-items: center !important;
+        background: #121614 !important;
+        border-bottom: 1px solid #29302c !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        height: 4.5rem !important;
+        min-height: 4.5rem !important;
+        overflow: hidden !important;
+        padding: 0.7rem 3.5rem 0.7rem 4.25rem !important;
+        position: relative !important;
+      }
+
+      .n8n-chat .chat-window-header > div {
+        align-items: flex-start !important;
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+      }
+
+      .n8n-chat .chat-window-header > button {
+        position: absolute !important;
+        right: 0.65rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+
+      .n8n-chat .chat-window-header::before {
+        background: #0b0d0c url("/images/logo.webp") center / 1.65rem no-repeat;
+        border: 1px solid #c8ff4d;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.35rem 0.9rem rgba(0, 0, 0, 0.24);
+        content: "";
+        height: 2.55rem;
+        left: 0.9rem;
+        position: absolute;
+        top: 0.95rem;
+        width: 2.55rem;
+      }
+
+      .n8n-chat .chat-window-header::after {
+        background: #c8ff4d;
+        border-radius: 50%;
+        bottom: 0.8rem;
+        box-shadow: 0 0 0 0.2rem #121614;
+        content: "";
+        height: 0.45rem;
+        left: 3.05rem;
+        position: absolute;
+        width: 0.45rem;
+      }
+
+      .n8n-chat .chat-window-header .chat-window-title {
+        align-self: flex-start !important;
+        color: #f4f3ed !important;
+        font-size: 1.05rem !important;
+        font-family: "Bricolage Grotesque", sans-serif !important;
+        line-height: 1.15 !important;
+        font-weight: 800 !important;
+        margin: 0 !important;
+      }
+
+      .n8n-chat .chat-window-header .chat-window-subtitle {
+        align-self: flex-start !important;
+        color: #a8ada7 !important;
+        font-size: 0.72rem !important;
+        letter-spacing: 0.02em !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+      }
+
+      .n8n-chat .chat-messages-list {
+        background-color: #0b0d0c !important;
+        background-image:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(200, 255, 77, 0.07),
+            transparent 13rem
+          ),
+          radial-gradient(
+            circle at 90% 85%,
+            rgba(28, 93, 184, 0.1),
+            transparent 15rem
+          ),
+          linear-gradient(rgba(244, 243, 237, 0.025) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(244, 243, 237, 0.025) 1px,
+            transparent 1px
+          ) !important;
+        background-size:
+          auto,
+          auto,
+          2.5rem 2.5rem,
+          2.5rem 2.5rem !important;
+      }
+
+      .n8n-chat .chat-message.chat-message-from-bot .chat-message-bubble {
+        background: #181d1a !important;
+        border: 1px solid #29302c !important;
+        border-radius: 0.2rem 0.75rem 0.75rem 0.75rem !important;
+        color: #f4f3ed !important;
+        box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .n8n-chat .chat-message.chat-message-from-user .chat-message-bubble {
+        background: #1c5db8 !important;
+        box-shadow: 0 0.3rem 0.8rem rgba(28, 93, 184, 0.2) !important;
+        border-radius: 0.75rem 0.2rem 0.75rem 0.75rem !important;
+        color: #f4f3ed !important;
+      }
+
+      .n8n-chat .chat-input {
+        background: #121614 !important;
+        border-top: 1px solid rgba(200, 255, 77, 0.16) !important;
+        padding: 0.8rem !important;
+      }
+
+      .n8n-chat .chat-input .chat-input-wrapper {
+        align-items: center !important;
+        background: #181d1a !important;
+        border: 1px solid #29302c !important;
+        border-radius: 0.5rem !important;
+        display: flex !important;
+        min-height: 3.1rem !important;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease !important;
+      }
+
+      .n8n-chat .chat-input .chat-input-wrapper:focus-within {
+        border-color: #c8ff4d !important;
+        box-shadow: 0 0 0 3px rgba(200, 255, 77, 0.12) !important;
+      }
+
+      .n8n-chat .chat-input textarea {
+        line-height: 1.35 !important;
+        min-height: 2.75rem !important;
+        padding: 0.7rem 0.8rem !important;
+        color: #f4f3ed !important;
+        font-family: "Instrument Sans", sans-serif !important;
+      }
+
+      .n8n-chat .chat-input textarea::placeholder {
+        color: #a8ada7 !important;
+      }
+
+      .n8n-chat .chat-input .chat-input-send-button {
+        background: #c8ff4d !important;
+        border-radius: 0.4rem !important;
+        color: #0b0d0c !important;
+        flex: 0 0 2.7rem !important;
+        height: 2.7rem !important;
+        margin: 0.15rem !important;
+        min-height: 2.7rem !important;
+        padding: 0 !important;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease !important;
+      }
+
+      .n8n-chat .chat-input .chat-input-send-button:hover,
+      .n8n-chat .chat-window-toggle:hover {
+        background: #8fbf24 !important;
+      }
+
+      .n8n-chat .chat-input .chat-input-send-button:hover {
+        transform: translateY(-1px) !important;
+      }
+
+      .n8n-chat .chat-window-toggle {
+        background: #c8ff4d !important;
+        border: 2px solid #0b0d0c !important;
+        box-shadow:
+          0 0 0 0.35rem rgba(200, 255, 77, 0.1),
+          0 0.5rem 1.5rem rgba(0, 0, 0, 0.28) !important;
+        color: #0b0d0c !important;
+        transition:
+          background 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.2s ease !important;
+      }
+
+      .n8n-chat .chat-window-toggle:hover {
+        box-shadow:
+          0 0 0 0.5rem rgba(200, 255, 77, 0.12),
+          0 0.7rem 1.7rem rgba(0, 0, 0, 0.32) !important;
+      }
+
+      @media (max-width: 480px) {
+        .n8n-chat .chat-window {
+          border-radius: 0 !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script type="module">
+      import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
+
+      createChat({
+        webhookUrl:
+          "https://n8n-ddc.onrender.com/webhook/9c15af21-3c0f-4250-8407-3fe73a21b8cc/chat",
+        webhookConfig: {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+        mode: "window",
+        chatInputKey: "chatInput",
+        chatSessionKey: "sessionId",
+        loadPreviousSession: true,
+        metadata: {
+          context: "business improvement",
+          tone: "practical",
+        },
+        showWelcomeScreen: false,
+        defaultLanguage: "en",
+        initialMessages: [
+          `Hello! I am Nexa, here to help you think about practical ways to improve your business.
+
+What kind of business do you run, and what is the biggest thing you would like to improve right now?`,
+        ],
+        i18n: {
+          en: {
+            title: "Nexa Assistant",
+            subtitle: "Practical ideas for better business",
+            footer: "Powered by IrahNexAI",
+            getStarted: "Start Chat",
+            inputPlaceholder: "Ask Nexa anything...",
+          },
+        },
+      });
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
