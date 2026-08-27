@@ -1,0 +1,43 @@
+.process-page {
+  background-image: radial-gradient(rgba(244, 243, 237, .14) .7px, transparent .7px);
+  background-size: 18px 18px;
+}
+
+.process-page > section {
+  background-image: radial-gradient(rgba(244, 243, 237, .14) .7px, transparent .7px);
+  background-size: 18px 18px;
+}
+
+.about-page {
+  background-image: linear-gradient(rgba(200, 255, 77, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 255, 77, .045) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+}
+
+.about-page > section {
+  background-image: linear-gradient(rgba(200, 255, 77, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 255, 77, .045) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+}
+
+.contact-page {
+  background-image: linear-gradient(rgba(200, 255, 77, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 255, 77, .045) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+}
+
+.contact-page > section {
+  background-image: linear-gradient(rgba(200, 255, 77, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 255, 77, .045) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .process-page,
+  .process-page > section {
+    background-size: 18px 18px;
+  }
+
+  .about-page,
+  .about-page > section,
+  .contact-page,
+  .contact-page > section {
+    background-size: 3rem 3rem;
+  }
+}
